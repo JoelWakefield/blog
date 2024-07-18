@@ -1,6 +1,24 @@
 # Project Management App Blog
 To see the commit history of what was worked on, check out the [repo](https://github.com/JoelWakefield/ProjectManagementApp).
 
+## 7/09/2024
+### Updates
+- The first day was setting up the initial environment and tools. I wanted to work on a project management app, something I've made in the past with Visual Basic, WinForms, SQL, and I believe .Net Framework 2.0 - 😵 (needless to say, it was painful to implement). The app worked fine, but I wanted to try for a version with more interactivity in terms of scheduling, assigning, and generally better quality of life features (both for the user and for the dev). This time around, the tech stack was a bit better:
+  - Tech: .NET 8.0 (AspNetCore, EfCore), Blazor (w/MudBlazor), Postgres, Docker
+  - Tools: Visual Studio, DBeaver, Docker Desktop
+- I had help from [Wes Thurmond](https://github.com/jwthurmond), an old coworker and technological wizard. Wes suggested setting up a docker environment, and using pre-built values - anyone can run the app for themselves by following the instructions on the README.
+
+## 7/17/2024
+### Issues
+- When using `AddIdentityCore`, it's important to call the `AddRoles` before `AddEntityFrameworkStores`.
+```
+builder.Services.AddIdentityCore<ApplicationUser>(options => options.SignIn.RequireConfirmedAccount = false)
+    .AddRoles<IdentityRole>()
+    .AddEntityFrameworkStores<ApplicationDbContext>()
+    .AddSignInManager()
+    .AddDefaultTokenProviders();
+```
+
 ## 7/18/2024
 ### Updates
 - Migrations were added to account for the new Project type.
