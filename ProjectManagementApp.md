@@ -1,5 +1,5 @@
 # Project Management App Blog
-To see the commit history of what was worked on, check out the [repo](https://github.com/JoelWakefield/ProjectManagementApp).
+To see the commit history of what was worked on, (or if you just want to see the source code) check out the [repo](https://github.com/JoelWakefield/ProjectManagementApp).
 
 ## 7/09/2024
 ### Updates
