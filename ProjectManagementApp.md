@@ -50,11 +50,15 @@ builder.Services.AddIdentityCore<ApplicationUser>(options => options.SignIn.Requ
   ```
   I'm not certain why this occured for only this file (maybe the previous issue was enough to trigger these modifiers), but once I removed them, the create a new project page showed up.
 
+## 7/25/2024
+### Updates
+- Added project roles; since AspNetRoles are used more for authority control, having a separate, internally controlled, set of roles keeps project management separate from security concerns.
+- Finished adding the project owners - now projects are associated with owners, but instead of updating a single record per project, a new record is made. Eventually, I might allow a manager to see all the previous owners on a project (since projects can trade hands often, it's important to know who handled the project at different times - a project can go poorly, but that doesn't make it the current owners fault).
 
 ## 7/29/2024
 ### Updates
 - Implemented only services for the blazor pages - no injecting `DbContext`. I did this to create consistency (and a few uses of `DbContext` were reused across pages anyway.
-- Added a kanban board to manage project owners; simple, but adds 1) an easier way to see who owns what projects very quickly, 2) a fast method for assigning ownership
+- Added a kanban board to manage project owners; simple, but adds 1) an easier way to see who owns what projects very quickly, 2) a fast method for assigning ownership.
 
 ### Issues
 - I encountered issues trying to make asynchronous calls - a concurency problem with `DbContext`; there are many suggestions to fix this, but none of the suggested fixes have brought stability - only different issues. I decided the best approach was the one that worked - not calling anything `async`; now the original issues are solved.
