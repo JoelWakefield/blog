@@ -49,3 +49,11 @@ builder.Services.AddIdentityCore<ApplicationUser>(options => options.SignIn.Requ
   </ItemGroup>
   ```
   I'm not certain why this occured for only this file (maybe the previous issue was enough to trigger these modifiers), but once I removed them, the create a new project page showed up.
+
+
+## 7/29/2024
+### Updates
+- Implemented only services for the blazor pages - no injecting `DbContext`. I did this to create consistency (and a few uses of `DbContext` were reused across pages anyway.
+
+### Issues
+- Thankfully, they seem to appear while trying asynchronous calls - it's has issues with multiple calls occuring with the same `DbContext` (which is the original issue), but none of the suggested fixes have brought stability - only different issues. I decided the best approach was the one that worked - not calling anything `async`; now the original issues are solved. It seems that Blazor also has some issues with `.razor` pages having different lifetimes than registered services. While there are several solutions provided, they each create their own issues. There doesn't seem to be a "best practice", but others have acknoledged these issues (so I know I'm not crazy). 
