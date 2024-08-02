@@ -63,3 +63,11 @@ builder.Services.AddIdentityCore<ApplicationUser>(options => options.SignIn.Requ
 ### Issues
 - I encountered issues trying to make asynchronous calls - a concurency problem with `DbContext`; there are many suggestions to fix this, but none of the suggested fixes have brought stability - only different issues. I decided the best approach was the one that worked - not calling anything `async`; now the original issues are solved.
 - It seems that Blazor also has some issues with `.razor` pages having different lifetimes than registered services; I'm not certain if these issues are related to the concurency one - they _seem_ to be, but I'm not so certain. Again, while there are several solutions provided, they each create their own issues. There doesn't seem to be a "best practice", but others have acknoledged these issues (so I know I'm not crazy). 
+
+## 7/30/2024
+### Updates
+- Added async to most of the services and events! Most issues can be resolved by returning existing queries, or checking for null values more.
+
+## 8/2/2024
+### Updates
+- Spent the week adding phases - there's a lot to implement, but I'm patiently making progress, not adding the complex UI until I have stablility with the basics.
