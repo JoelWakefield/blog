@@ -71,3 +71,8 @@ builder.Services.AddIdentityCore<ApplicationUser>(options => options.SignIn.Requ
 ## 8/2/2024
 ### Updates
 - Spent the week adding phases - there's a lot to implement, but I'm patiently making progress, not adding the complex UI until I have stablility with the basics.
+
+## 8/6/2024 - 8/8/2024
+### Updates
+- made a large PR with Phases involving Stages, Owners, and Assignments
+- the assignments page is somewhat crude, but it's straighforward and works - no need to overcomplicate things
