@@ -76,3 +76,6 @@ builder.Services.AddIdentityCore<ApplicationUser>(options => options.SignIn.Requ
 ### Updates
 - made a large PR with Phases involving Stages, Owners, and Assignments
 - the assignments page is somewhat crude, but it's straighforward and works - no need to overcomplicate things
+
+### Notes
+- might want to change the records from a purely immutable approach to a mutated current state used with a historical matching record for timelines
